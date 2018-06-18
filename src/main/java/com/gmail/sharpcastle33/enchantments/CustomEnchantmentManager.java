@@ -60,7 +60,7 @@ public class CustomEnchantmentManager {
 		  
 		  for(CustomEnchantment ench : enchants.keySet()){
 			  
-			  if(ench.equals(CustomEnchantment.ENHANCED))
+			  if(ench.equals(CustomEnchantment.INFUSION))
 				  continue;
 			  
 			  String level = Util.getRomanNumeral(enchants.get(ench));
@@ -380,7 +380,7 @@ public class CustomEnchantmentManager {
 	  if(e.equals(Enchantment.DURABILITY))
 		  return CustomEnchantment.UNBREAKING;
 	  if(e.equals(Enchantment.DIG_SPEED) || e.equals(Enchantment.DAMAGE_ALL) || e.equals(Enchantment.ARROW_DAMAGE) || e.equals(Enchantment.PROTECTION_ENVIRONMENTAL))
-		  return CustomEnchantment.ENHANCED;
+		  return CustomEnchantment.INFUSION;
 	  return CustomEnchantment.NO_ENCHANTMENT;
 	}
   

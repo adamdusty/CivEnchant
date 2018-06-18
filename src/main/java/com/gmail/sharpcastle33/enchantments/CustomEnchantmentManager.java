@@ -1,6 +1,5 @@
 package com.gmail.sharpcastle33.enchantments;
 
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.HashMap;
@@ -395,7 +394,7 @@ public class CustomEnchantmentManager {
 	  Map<CustomEnchantment, Integer> ret = new HashMap<CustomEnchantment, Integer>();
 	  
 	  ItemMeta meta = stack.getItemMeta();
-	  java.util.List<String> lore = meta.getLore();
+	  List<String> lore = meta.getLore();
 	  
 	  //fix this set to remove vanilla enchants
 	  EnumSet<CustomEnchantment> enchantments = EnumSet.allOf( CustomEnchantment.class);

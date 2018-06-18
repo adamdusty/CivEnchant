@@ -48,7 +48,7 @@ public class CooldownManager {
   public void add(Player player, CustomEnchantment ench, int duration){
   
 
-	  EnchantmentCooldown cd;
+	  EnchantmentCooldown cd = new EnchantmentCooldown(null, 0, null);
 	  
 
       switch(ench){

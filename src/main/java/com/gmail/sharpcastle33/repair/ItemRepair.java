@@ -37,7 +37,8 @@ public class ItemRepair {
 		
 		// Check if player has enough XP
 		if(playerXP < REPAIR_EXP_COST) {
-			return null;
+			player.sendMessage("Not enough XP");
+			return repairedItem;
 		}
 		
 		player.sendMessage("Enough XP");
@@ -62,17 +63,19 @@ public class ItemRepair {
 		player.sendMessage("Determining chance");
 		
 		// Determine repair chance
+		// REPAIR ALGO /////////////////////////////
 		float infLvlMod = 0.5f / infusionLevel;
 		float podwerMod = ((numPowder * POWDER_STRENGTH) / ((numPowder * POWDER_STRENGTH) + 1f)) * 0.5f;
 		float repairChance = infLvlMod + podwerMod;
 
 		repairChance = repairChance > MAX_REPAIR_CHANCE ? MAX_REPAIR_CHANCE : repairChance;
+		///////////////////////////////////////////
 		
 		float bar = random.nextFloat();
 		player.sendMessage(repairChance + ", " + bar);
 
 		if (repairChance > bar) {
-			repairedItem.setDurability(repairedItem.getType().getMaxDurability());
+			repairedItem.setDurability((short)0);
 			player.sendMessage(ChatColor.GREEN + "Repair successful!");
 		} else {
 			player.sendMessage(ChatColor.DARK_RED + "Repair failed!");
@@ -88,7 +91,7 @@ public class ItemRepair {
 			repairedItem.getItemMeta().setLore(lore);
 		}
 		
-		player.setTotalExperience(playerXP - REPAIR_EXP_COST);
+		player.setLevel(playerXP - REPAIR_EXP_COST);
 
 		return repairedItem;
 	}
